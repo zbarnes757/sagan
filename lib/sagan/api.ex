@@ -72,10 +72,10 @@ defmodule Sagan.API do
     |> Enum.join("/")
   end
 
-  defp get_resource_type([h | t]) when h in @resource_types, do: h
+  defp get_resource_type([h | _t]) when h in @resource_types, do: h
   defp get_resource_type([_h | t]), do: get_resource_type(t)
 
-  def filter_resource_link([h | t] = list) when h in @resource_types, do: t
+  def filter_resource_link([h | t]) when h in @resource_types, do: t
   def filter_resource_link(list), do: list
 
   defp get_now() do
