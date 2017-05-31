@@ -1,0 +1,15 @@
+[
+  {
+    "request": {
+      "url": "https://COSMOS_HOST/dbs/test/colls/testDocs/docs",
+      "body": "{\"id\":\"foo\",\"bar\":\"baz\"}"
+    },
+    "response": {
+      "status_code": 201,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\"id\":\"foo\",\"bar\":\"baz\",\"_ts\":1496245541,\"_self\":\"dbs/zhEaAA==/colls/zhEaALB9pgE=/docs/zhEaALB9pgECAAAAAAAAAA==/\",\"_rid\":\"zhEaALB9pgECAAAAAAAAAA==\",\"_etag\":\"\\\"00009b02-0000-0000-0000-592ee5250000\\\"\",\"_attachments\":\"attachments/\"}"
+    }
+  }
+]

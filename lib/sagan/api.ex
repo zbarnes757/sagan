@@ -1,34 +1,26 @@
 defmodule Sagan.API do
   use Timex
 
-  @database Application.get_env(:sagan, :database)
   @host Application.get_env(:sagan, :host)
   @master_key Application.get_env(:sagan, :master_key) |> Base.decode64!()
   @resource_types ["dbs", "colls", "docs"]
-
-  def create_document(collection, document) do
-    "dbs/#{@database}/colls/#{collection}/docs"
-    |> post(document)
-  end
-
-  def get_document_by_id(collection, id) do
-    "dbs/#{@database}/colls/#{collection}/docs/#{id}"
-    |> get()
-  end
 
   def post(path, body) do
     path
     |> build_url()
     |> HTTPoison.post(Poison.encode!(body), headers(path, "post"), ssl: [{:versions, [:'tlsv1.2']}])
+    |> parse_response()
   end
 
   def get(path) do
     path
     |> build_url()
     |> HTTPoison.get(headers(path, "get"), ssl: [{:versions, [:'tlsv1.2']}])
+    |> parse_response()
   end
 
   # Helper Function
+
   defp build_url(path), do: "https://#{@host}/#{path}"
 
   defp headers(path, method) do
@@ -84,4 +76,10 @@ defmodule Sagan.API do
      |> Timex.format!("{WDshort}, {D} {Mshort} {YYYY} {h24}:{m}:{s} {Zabbr}")
      |> String.downcase()
   end
+
+  defp parse_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}), do: Poison.decode(body)
+  defp parse_response({:ok, %HTTPoison.Response{status_code: 201, body: body}}), do: Poison.decode(body)
+  defp parse_response({:ok, resp}), do: {:error, resp}
+  defp parse_response({:error, %HTTPoison.Error{reason: reason}}), do: {:error, reason}
+  defp parse_response(_), do: {:error, "Unknown error occured during api call."}
 end

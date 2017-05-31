@@ -2,12 +2,18 @@ defmodule Sagan.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :sagan,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :sagan,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      preferred_cli_env: [
+        espec: :test,
+        vcr: :test
+      ]
+    ]
   end
 
   # Configuration for the OTP application
@@ -32,7 +38,11 @@ defmodule Sagan.Mixfile do
     [
       {:httpoison, "~> 0.11.2"},
       {:timex, "~> 3.1"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+
+      # Test and Dev deps
+      {:espec, "~> 1.4.0", only: :test},
+      {:exvcr, "~> 0.8", only: :test}
     ]
   end
 end
