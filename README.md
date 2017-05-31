@@ -1,7 +1,7 @@
 # Sagan 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-Azure Cosmos DB Driver for Elixir
+Azure Cosmos DB Driver for Elixir. Docs can be found at [https://hexdocs.pm/sagan](https://hexdocs.pm/sagan).
 
 ## Features
   
@@ -16,6 +16,7 @@ Azure Cosmos DB Driver for Elixir
 
 ## Tentative Roadmap
 
+  * Add pooling
   * Switch from REST to TCP. Not a lot of documentation around this so not sure if it will work.
   * Use docker image for local development and testing. Only Cosmos DB emulator available is for Windows.
 
@@ -38,9 +39,11 @@ config :sagan,
   database: "your-database"
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/sagan](https://hexdocs.pm/sagan).
+## Contributing
+
+Anyone is welcome to open a pr to help with this project! I ask that all code comes with appropriate tests as I will be implementing Travis for this repo as soon as possible. 
+
+The only caveat to developing on this project right now is that there is no docker image to test against so all tests and development will need to take place against your own database. I recommend creating a database called `test` and a collection called `testDocs` that you can dump as needed. ExVcr should be cleaning your hostnames from the fixtures so if we follow this pattern, there should be no issues as more vcrs get added. Please place all new cassettes in the `fixtures/custom_cassettes` folder and strip out all unnecessary data from your requests. See [existing](https://github.com/zbarnes757/sagan/tree/master/fixture/custom_cassettes) cassettes for examples.
 
 
 
