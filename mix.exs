@@ -12,7 +12,11 @@ defmodule Sagan.Mixfile do
       preferred_cli_env: [
         espec: :test,
         vcr: :test
-      ]
+      ],
+      description: description(),
+      package: package(),
+      name: "Sagan",
+      source_url: "https://github.com/zbarnes757/sagan"
     ]
   end
 
@@ -42,7 +46,26 @@ defmodule Sagan.Mixfile do
 
       # Test and Dev deps
       {:espec, "~> 1.4.0", only: :test},
-      {:exvcr, "~> 0.8", only: :test}
+      {:exvcr, "~> 0.8", only: :test},
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
+    ]
+  end
+
+
+  defp description do
+    """
+    Azure Cosmos DB driver for Elixir
+    """
+  end
+
+  defp package do
+    # These are the default files included in the package
+    [
+      name: :sagan,
+      files: ["lib", "mix.exs", "README.md", "LICENSE",],
+      maintainers: ["Zac Barnes"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/zbarnes757/sagan"}
     ]
   end
 end
