@@ -43,6 +43,8 @@ defmodule Sagan.Mixfile do
       {:httpoison, "~> 0.11.2"},
       {:timex, "~> 3.1"},
       {:poison, "~> 3.1"},
+      {:mongodb, git: "https://github.com/zbarnes757/mongodb.git", branch: "stable"},
+      {:poolboy, "~> 1.5"},
 
       # Test and Dev deps
       {:espec, "~> 1.4.0", only: :test},

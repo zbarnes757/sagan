@@ -1,8 +1,8 @@
 defmodule Sagan.API do
   use Timex
 
-  @host Application.get_env(:sagan, :host)
-  @master_key Application.get_env(:sagan, :master_key) |> Base.decode64!()
+  @host Application.get_env(:sagan, :hostname)
+  @master_key Application.get_env(:sagan, :password) |> Base.decode64!()
   @resource_types ["dbs", "colls", "docs"]
 
   def post(path, body) do
