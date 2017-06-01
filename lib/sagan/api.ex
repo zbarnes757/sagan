@@ -73,13 +73,13 @@ defmodule Sagan.API do
   defp get_now() do
      DateTime.utc_now()
      |> Timezone.convert("GMT")
-     |> Timex.format!("{WDshort}, {D} {Mshort} {YYYY} {h24}:{m}:{s} {Zabbr}")
+     |> Timex.format!("%a, %d %b %Y %H:%M:%S %Z", :strftime)
      |> String.downcase()
   end
 
   defp parse_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}), do: Poison.decode(body)
   defp parse_response({:ok, %HTTPoison.Response{status_code: 201, body: body}}), do: Poison.decode(body)
-  defp parse_response({:ok, resp}), do: {:error, resp}
+  defp parse_response({:ok, %HTTPoison.Response{body: body}}), do: Poison.decode(body)
   defp parse_response({:error, %HTTPoison.Error{reason: reason}}), do: {:error, reason}
   defp parse_response(_), do: {:error, "Unknown error occured during api call."}
 end

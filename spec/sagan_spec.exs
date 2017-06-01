@@ -22,4 +22,20 @@ defmodule SaganSpec do
       end
     end
   end
+
+  describe "get_document_by_id/2" do
+    it "should return a document by id" do
+      use_cassette "get_document", custom: true do
+        {:ok, resp} = Sagan.get_document_by_id("testDocs", "foo")
+        
+        expect resp["id"]  |> to(eq "foo")
+        expect resp["bar"] |> to(eq "baz")
+        expect resp        |> to(have_key "_rid")
+        expect resp        |> to(have_key "_self")
+        expect resp        |> to(have_key "_etag")
+        expect resp        |> to(have_key "_attachments")
+        expect resp        |> to(have_key "_ts")
+      end
+    end
+  end
 end

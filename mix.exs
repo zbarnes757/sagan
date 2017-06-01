@@ -47,7 +47,8 @@ defmodule Sagan.Mixfile do
       # Test and Dev deps
       {:espec, "~> 1.4.0", only: :test},
       {:exvcr, "~> 0.8", only: :test},
-      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
+      {:mock, "~> 0.2.1", only: :test}
     ]
   end
 
