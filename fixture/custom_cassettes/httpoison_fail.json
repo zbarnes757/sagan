@@ -1,9 +1,0 @@
-[
-  {
-    "request": {
-      "url": "https://COSMOS_HOST/dbs/test/colls/testDocs/docs",
-      "body": "{\"id\":\"foo\",\"bar\":\"baz\"}"
-    },
-    "response": {}
-  }
-]

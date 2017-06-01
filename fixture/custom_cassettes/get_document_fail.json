@@ -1,0 +1,14 @@
+[
+  {
+    "request": {
+      "url": "https://COSMOS_HOST/dbs/test/colls/testDocs/docs/foo"
+    },
+    "response": {
+      "status_code": 404,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\"message\":\"Message: {\\\"Errors\\\":[\\\"Resource Not Found\\\"]}\\r\\nActivityId: 341323d9-076d-4404-a4dc-e098159db592, Request URI: /apps/7dc938ac-8c47-4af3-9760-5e80284624b0/services/de8bf613-ae9e-43c2-b377-24cc86743b1f/partitions/f8bee45e-bdbc-47ba-aedf-b9b4b3fb22f0/replicas/131407050069303940p\",\"code\":\"NotFound\"}"
+    }
+  }
+]
