@@ -25,8 +25,10 @@ defmodule Sagan.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger],
-     mod: {Sagan.Application, []}]
+    [
+      extra_applications: [:logger],
+      mod: {Sagan.Application, []}
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -43,7 +45,7 @@ defmodule Sagan.Mixfile do
       {:httpoison, "~> 0.11.2"},
       {:timex, "~> 3.1"},
       {:poison, "~> 3.1"},
-      {:mongodb, git: "https://github.com/zbarnes757/mongodb.git", branch: "stable"},
+      {:mongodb, "~> 0.4"},
       {:poolboy, "~> 1.5"},
 
       # Test and Dev deps

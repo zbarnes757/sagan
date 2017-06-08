@@ -1,6 +1,6 @@
 ESpec.configure fn(config) ->
   config.before fn(tags) ->
-    ExVCR.Config.filter_sensitive_data(Application.get_env(:sagan, :host), "COSMOS_HOST")
+    ExVCR.Config.filter_sensitive_data(Application.get_env(:sagan, :hostname), "COSMOS_HOST")
 
     {:shared, hello: :world, tags: tags}
   end
