@@ -1,5 +1,5 @@
 # Sagan 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![build](https://travis-ci.org/zbarnes757/sagan.svg?branch=master)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![build](https://travis-ci.org/zbarnes757/sagan.svg?branch=master)]() [![Hex.pm](https://img.shields.io/hexpm/v/sagan.svg)](https://hex.pm/packages/sagan)
 
 Azure Cosmos DB Driver for Elixir. Docs can be found at [https://hexdocs.pm/sagan](https://hexdocs.pm/sagan).
 
