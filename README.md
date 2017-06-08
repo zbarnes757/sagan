@@ -27,7 +27,7 @@ by adding `sagan` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:sagan, "~> 0.1.0"}]
+  [{:sagan, "~> 0.1.1"}]
 end
 
 # in your config.exs

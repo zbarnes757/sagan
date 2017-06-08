@@ -2,7 +2,6 @@ defmodule Sagan.API do
   use Timex
 
   @host Application.get_env(:sagan, :hostname)
-  @master_key Application.get_env(:sagan, :password) |> Base.decode64!()
   @resource_types ["dbs", "colls", "docs"]
 
   def post(path, body) do
@@ -39,10 +38,11 @@ defmodule Sagan.API do
     resource_link = build_resource_link(path)
 
     body = "#{method}\n#{resource_type}\n#{resource_link}\n#{now}\n\n"
-    
+    master_key = Application.get_env(:sagan, :password) |> Base.decode64!()
+
     signature = 
       :sha256
-      |> :crypto.hmac(@master_key, body)
+      |> :crypto.hmac(master_key, body)
       |> Base.encode64()
     
     URI.encode_www_form("type=master&ver=1.0&sig=#{signature}")
