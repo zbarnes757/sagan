@@ -4,7 +4,7 @@ defmodule Sagan.Mixfile do
   def project do
     [
       app: :sagan,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.4",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -42,7 +42,7 @@ defmodule Sagan.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.11.2"},
+      {:httpoison, "~> 0.13.0"},
       {:timex, "~> 3.1"},
       {:poison, "~> 3.1"},
       {:mongodb, "~> 0.4"},

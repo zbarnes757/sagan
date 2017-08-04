@@ -1,10 +1,10 @@
-# Sagan 
+# Sagan
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![build](https://travis-ci.org/zbarnes757/sagan.svg?branch=master)]() [![Hex.pm](https://img.shields.io/hexpm/v/sagan.svg)](https://hex.pm/packages/sagan)
 
 Azure Cosmos DB Driver for Elixir. Docs can be found at [https://hexdocs.pm/sagan](https://hexdocs.pm/sagan).
 
 ## Features
-  
+
   * Connects to Azure Cosmos DB through MongoDB api (wraps all functions from @ankhers [mongodb driver](https://github.com/ankhers/mongodb))
   * uses poolboy pooling out of the box for all mongodb commands
 
@@ -27,7 +27,7 @@ by adding `sagan` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:sagan, "~> 0.1.1"}]
+  [{:sagan, "~> 0.1.2"}]
 end
 
 # in your config.exs
